@@ -14,3 +14,8 @@ bool canUseLift2(int fromFloor, int toFloor,bool lift2Operational, int emergency
 bool unlockFloor3Door(const char inventory[MAX_INVENTORY_CAPACITY],int inventoryCount) {
     for (int i=0;i<inventoryCount;i++){if (inventory[i] == ENT_MASTER_KEY) {return true;}}
     return false;}
+
+bool verifyCabinetCode(const char* enteredCode,const bool objectives[NUM_OBJECTIVES]) {
+    if (objectives[1] == false ||objectives[2] == false ||objectives[3] == false) {return false;}
+    if (stringEquals(enteredCode,"427")){return true;}
+    return false;}
