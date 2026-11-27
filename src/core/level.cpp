@@ -5,6 +5,12 @@
 #include<iostream>
 #include <cstdlib> //convert '111' into int 111
 using namespace std;
+
+bool validateStartingRoom(int startFloor, int startRoom,const char horizontalConn[NUM_FLOORS][ROOMS_PER_FLOOR - 1]){
+(void)horizontalConn;
+if (startFloor < 1 || startFloor > NUM_FLOORS ||startRoom < 1 || startRoom > ROOMS_PER_FLOOR) {return false;}
+else{return true;}}
+
 const char* getEntityName(char entitySymbol){
 if (entitySymbol=='<'){return "MASTER_KEY";}
 else if(entitySymbol==' '){return "None";}
