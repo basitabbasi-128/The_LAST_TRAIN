@@ -18,14 +18,7 @@ else if(entitySymbol==')'){return "ENERGY_PACK";}
 else if(entitySymbol==ENT_EMERGENCY_TOOLKIT){return "EMERGENCY_TOOLKIT";}
 else if(entitySymbol=='4'){return "CLUE_4";}
 else if(entitySymbol==ENT_FUSE){return "FUSE";}
-else if(entitySymbol==ENT_CAT){return "CAT";}
-else if(entitySymbol==';'){return "CONTROL_PANEL";}
-else if(entitySymbol=='('){return "LIFT_PASS";}
-else if(entitySymbol=='!'){return "PASSENGER";}
-else if(entitySymbol=='%'){return "MEDICAL_KIT";}
-else if(entitySymbol=='$'){return "EMERGENCY_CARD";}
-else if(entitySymbol=='2'){return "CLUE_2";}
-else if(entitySymbol=='7'){return "CLUE_7";}
+
 else if(entitySymbol=='@'){return "CAT_CARRIER";}
 else if(entitySymbol=='&'){return "OBSERVATION_TOKEN";}
 else if(entitySymbol=='^'){return "CABINET_TRAIN_KEY";}
