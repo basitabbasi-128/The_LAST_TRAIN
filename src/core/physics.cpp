@@ -12,6 +12,9 @@ bool isDirectlyConnected (int fromF, int fromR, int toF, int toR,
                          const char horizontalConn[NUM_FLOORS][ROOMS_PER_FLOOR - 1],
                          char& outConnType)
                          {
+                            if (fromF < 1 || fromF > NUM_FLOORS) return false;
+                            if (fromR < 1 || fromR > ROOMS_PER_FLOOR) return false;
+                            if (toR < 1 || toR > ROOMS_PER_FLOOR) return false;
                             if (fromF != toF) return false;
                             if (fromR - toR != 1 && fromR - toR != -1) return false;
                             int index;
@@ -21,7 +24,7 @@ bool isDirectlyConnected (int fromF, int fromR, int toF, int toR,
                             return true;    
                          }
 
-// takes coonection type and checks if palyer is allowed to pass through it or not, it also checks required items in inventory,remaining emergency trips, if lift 2 is operational
+                         // takes coonection type and checks if palyer is allowed to pass through it or not, it also checks required items in inventory,remaining emergency trips, if lift 2 is operational
 bool canTraverse(int targetFloor, int targetRoom, char connType,
                  const char inventory[MAX_INVENTORY_CAPACITY], int inventoryCount,
                  int emergencyTripsLeft, bool lift2Operational)
@@ -57,4 +60,24 @@ bool hasItem(const char inventory[MAX_INVENTORY_CAPACITY], int inventoryCount, c
     i++;
   }
 return false;
+}
+
+//adds item in players inventory and increses inventory count 
+bool addItem(char inventory[MAX_INVENTORY_CAPACITY], int& inventoryCount, char itemSymbol){
+  if (inventoryCount >= MAX_INVENTORY_CAPACITY) return false;
+  inventory[inventoryCount] = itemSymbol;
+  inventoryCount++;
+  return true;
+}
+
+// it removes a particular item from players inventory
+bool removeItem(char inventory[MAX_INVENTORY_CAPACITY], int& inventoryCount, char itemSymbol){
+  for (int i = 0; i < inventoryCount; i++){
+    if (inventory[i] == itemSymbol){
+      for (int j = i; j < inventoryCount - 1; j++) inventory[j] = inventory[j+1];
+      inventoryCount--;
+      return true;
+    }
+  }
+  return false;
 }
