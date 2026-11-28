@@ -38,4 +38,23 @@ bool canTraverse(int targetFloor, int targetRoom, char connType,
 
                    return false;
                   }
+// updates players energy and time when they gain or lose resources
+void applyResourceDelta(int& energy, int& time, int deltaEnergy, int deltaTime){
+  energy = clampInt(energy + deltaEnergy, 0, MAX_ENERGY);
+  time = clampInt(time + deltaTime, 0, MAX_TIME);
+}
 
+//updates players score by adding or subtracting the given score
+void applyScoreDelta(int& score, int deltaScore){
+  score = score + deltaScore;
+}
+
+//checks if the particular item exists in palyers inventory
+bool hasItem(const char inventory[MAX_INVENTORY_CAPACITY], int inventoryCount, char itemSymbol){
+  int i = 0;
+  while (i < inventoryCount){
+    if (inventory[i] == itemSymbol) return true;
+    i++;
+  }
+return false;
+}
